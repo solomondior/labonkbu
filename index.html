@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Toothless</title>
+        <title>Labonkbu</title>
         <meta name="description" content="" />
         <link
             rel="shortcut icon"
-            href="./assets/logo/logo.png"
+            href="./assets/images/home/phone.png"
             type="image/x-icon"
         />
 
@@ -32,7 +32,8 @@
         />
     </head>
     <body
-        class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-white tw-text-black"
+        class="tw-flex tw-min-h-[100vh] tw-flex-col tw-text-black"
+        style="background: radial-gradient(ellipse, orangered, transparent, orange) orange;"
     >
         <style>
   html, body {
@@ -48,7 +49,7 @@
     cursor: pointer;
   }
   .header-nav-link:hover {
-    color: #e0e0e0;
+    color: #e0e0e0 !important;
   }
   .btn-interactive {
     transition: transform 1.5s cubic-bezier(.4,2,.6,1.2);
@@ -59,15 +60,13 @@
     transform: scale(1.08);
     z-index: 2;
   }
-  .shake-interactive {
-    transition: transform 2s cubic-bezier(.4,2,.6,1.2);
-    display: inline-block;
+  .tokenomics-container {
+    transition: ease-in-out 0.3s;
     cursor: pointer;
   }
-  .shake-interactive:hover {
-    animation: wobbleDiag 2s cubic-bezier(.36,.07,.19,.97) both;
-    transform: scale(1.06);
-    z-index: 2;
+  .tokenomics-container:hover {
+    transform: scale(1.2) rotate(10deg);
+    background-color: #ff9800 !important;
   }
   @keyframes wobbleDiag {
     10% { transform: translate(-2px, 2px) rotate(-2deg); }
@@ -90,24 +89,260 @@
     50% { transform: rotate(-5deg) scale(1.08); }
     100% { transform: rotate(-5deg) scale(1); }
   }
+  
+  /* SVG Button Effect Styles */
+  .svg-button {
+    all: unset;
+    cursor: pointer;
+  }
+  
+  .svg-button-item {
+    position: relative;
+    display: inline-flex;
+    height: 3.5rem;
+    align-items: center;
+    border-radius: 9999px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: Segoe UI;
+    font-size: 1.2rem;
+    font-weight: 640;
+    color: #fafaf6;
+    letter-spacing: -0.06em;
+  }
+  
+  .svg-button-item {
+    background-color: transparent;
+    color: #1d1d1f;
+  }
+  
+  .svg-button-item .svg-button-bg {
+    border-color: rgba(255, 208, 116);
+    background-color: rgba(255, 208, 116);
+  }
+  
+  .svg-button-inner,
+  .svg-button-inner-hover,
+  .svg-button-inner-static {
+    pointer-events: none;
+    display: block;
+  }
+  
+  .svg-button-inner {
+    position: relative;
+  }
+  
+  .svg-button-inner-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  
+  .svg-button-bg {
+    overflow: hidden;
+    border-radius: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .svg-button-bg,
+  .svg-button-bg-layer,
+  .svg-button-bg-layers {
+    display: block;
+  }
+  
+  .svg-button-bg-layers {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: -60%;
+    aspect-ratio: 1 / 1;
+    width: max(200%, 10rem);
+  }
+  
+  .svg-button-bg-layer {
+    border-radius: 9999px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+  }
+  
+  .svg-button-bg-layer.-purple {
+    background-color: rgba(163, 116, 255);
+  }
+  
+  .svg-button-bg-layer.-turquoise {
+    background-color: rgba(23, 241, 209);
+  }
+  
+  .svg-button-bg-layer.-yellow {
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 208, 116, var(--tw-bg-opacity));
+  }
+  
+  .svg-button:hover .svg-button-inner-static {
+    opacity: 0;
+    transform: translateY(-70%);
+    transition:
+      transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  
+  .svg-button:hover .svg-button-inner-hover {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .svg-button:hover .svg-button-bg-layer {
+    transition:
+      transform 1.3s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  
+  .svg-button:hover .svg-button-bg-layer-1 {
+    transform: scale(1);
+  }
+  
+  .svg-button:hover .svg-button-bg-layer-2 {
+    transition-delay: 0.1s;
+    transform: scale(1);
+  }
+  
+  .svg-button:hover .svg-button-bg-layer-3 {
+    transition-delay: 0.2s;
+    transform: scale(1);
+  }
+  
+  /* SVG Icon Button Effects */
+  .svg-icon-link {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .svg-icon-link:hover {
+    /* Removed transform to prevent shifting */
+  }
+  
+  .svg-icon-group {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .svg-icon-bg {
+    transition: all 0.3s ease;
+  }
+  
+  .svg-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .svg-icon-link:hover .svg-icon-bg {
+    fill: #ff9800;
+    stroke: #111;
+    stroke-width: 4;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  }
+  
+  .svg-icon-link:hover .svg-icon {
+    transform: scale(1.05);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+  
+  /* Add animated background effect */
+  .svg-icon-link::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(163, 116, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .svg-icon-link:hover::before {
+    opacity: 1;
+    animation: pulse-glow 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0.6;
+    }
+  }
+  
+  /* Hero Cloud Visual */
+  .btnCloud {
+    background-color: transparent;
+    position: relative;
+    fill: #ffffff;
+    border: none;
+  }
+  
+  .icon {
+    transform: scale(4);
+    animation: cloud-float 8s ease-in-out infinite;
+  }
+  
+  /* Typewriter Cursor Animation */
+  #typewriter-cursor {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  @keyframes cloud-float {
+    0%, 100% {
+      transform: scale(4) translateX(0);
+    }
+    50% {
+      transform: scale(4) translateX(5px);
+    }
+  }
 </style>
 <div style="position:relative;margin:-115px auto 0 auto;width:80vw;max-width:1300px;height:270px;background:transparent;">
   <svg viewBox="0 0 1300 270" width="100%" height="100%" style="position:absolute;top:0;left:0;z-index:1;pointer-events:none;" preserveAspectRatio="none">
     <path d="M10,165 Q80,135 240,165 Q400,195 560,165 Q720,135 880,165 Q1040,195 1260,165 L1290,250 L10,250 Z" fill="#ff9800" stroke="black" stroke-width="6"/>
     <!-- Social/Chart Icons -->
     <g style="pointer-events:all;">
-      <a href="https://x.com/toothless_dev" target="_blank" rel="noopener noreferrer">
-        <g transform="translate(1000,185)">
-          <circle cx="30" cy="30" r="28" fill="#fff" stroke="#111" stroke-width="3"/>
-          <svg x="13" y="13" width="34" height="34" viewBox="0 0 24 24" fill="none">
+      <a href="https://x.com/Labonkbudev" target="_blank" rel="noopener noreferrer" class="svg-icon-link">
+        <g transform="translate(1000,185)" class="svg-icon-group">
+          <circle cx="30" cy="30" r="28" fill="#fff" stroke="#111" stroke-width="3" class="svg-icon-bg"/>
+          <svg x="13" y="13" width="34" height="34" viewBox="0 0 24 24" fill="none" class="svg-icon">
             <path d="M17.53 2H21.5L14.36 10.32L22.75 21.5H16.08L10.97 14.93L5.19 21.5H1.21L8.78 12.67L0.75 2H7.58L12.18 7.97L17.53 2ZM16.36 19.57H18.19L6.47 3.82H4.53L16.36 19.57Z" fill="#111"/>
           </svg>
         </g>
       </a>
-      <a href="https://letsbonk.fun/token/9cQLa4fAyuYLBMhgZ5VAgH5evCVa22Trgxv5DDCbonk" target="_blank" rel="noopener noreferrer">
-        <g transform="translate(1080,185)">
-          <circle cx="30" cy="30" r="28" fill="#fff" stroke="#111" stroke-width="3"/>
-          <svg x="13" y="13" width="34" height="34" viewBox="0 0 24 24" fill="none">
+      <a href="https://letsbonk.fun/token/doAMGn1afX2dpXnLj3R5HWL6vAPDRKCdsFN6jWKbonk" target="_blank" rel="noopener noreferrer" class="svg-icon-link">
+        <g transform="translate(1080,185)" class="svg-icon-group">
+          <circle cx="30" cy="30" r="28" fill="#fff" stroke="#111" stroke-width="3" class="svg-icon-bg"/>
+          <svg x="13" y="13" width="34" height="34" viewBox="0 0 24 24" fill="none" class="svg-icon">
             <rect x="4" y="14" width="3" height="6" rx="1.5" fill="#ff9800"/>
             <rect x="10.5" y="10" width="3" height="10" rx="1.5" fill="#ff9800"/>
             <rect x="17" y="6" width="3" height="14" rx="1.5" fill="#ff9800"/>
@@ -117,9 +352,9 @@
     </g>
   </svg>
   <!-- Navigation container: adjust top, left, right, height, font-size for micro-tweaks -->
-  <div style="position:absolute;top:190px;left:0px;right:550px;height:60px;display:flex;align-items:center;justify-content:center;gap:48px;font-size:2.2rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;color:#111;letter-spacing:2px;z-index:2;">
-    <span class="header-nav-link">$Toothless</span>
-    <a class="header-nav-link" href="#memes-section" style="text-decoration:none;color:inherit;">Memes</a>
+  <div style="position:absolute;top:190px;left:50px;right:550px;height:60px;display:flex;align-items:center;justify-content:flex-start;gap:48px;font-size:2.2rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;color:#111;letter-spacing:2px;z-index:2;">
+    <span class="header-nav-link">$labonkbu</span>
+    <a class="header-nav-link" href="#meme-gallery-section" style="text-decoration:none;color:inherit;">Memes</a>
     <a class="header-nav-link" href="#tokenomics-section" style="text-decoration:none;color:inherit;">Tokenomics</a>
                 </div>
             </div>
@@ -128,6 +363,7 @@
         <section
             class="hero-section tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-md:tw-mt-[50px]"
             id="hero-section"
+            style="background: radial-gradient(ellipse, orangered, transparent, orange) orange;"
         >
             <div
                 class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-flex-col tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-p-4"
@@ -139,7 +375,7 @@
                         class="reveal-up toothless-animate tw-text-center tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
                         style="margin-top: 0; margin-bottom: 0.5rem; position: relative; top: -60px;"
                     >
-                        Toothless
+                        <span style="color: #fff;">labonkbu</span>
                     </div>
                     <ul class="tw-mt-2 tw-text-2xl tw-font-medium tw-text-black tw-space-y-2 max-md:tw-text-lg tw-list-none tw-flex tw-flex-col tw-items-center">
                         <li class="tw-flex tw-items-center"><span class="tw-inline-block tw-h-3 tw-w-3 tw-bg-black tw-rounded-full tw-mr-3"></span>100% Community-Driven</li>
@@ -152,7 +388,6 @@
                     class="reveal-up tw-relative tw-mt-8 tw-flex tw-w-full tw-place-content-center tw-place-items-center"
                     id="dashboard-container"
                 >
-                    
                 </div>
 
                 <!-- Remove the div containing the description and the buttons below the hero image -->
@@ -161,7 +396,7 @@
                 style="position:absolute;top:40px;left:40px;z-index:2;max-width:600px;max-height:600px;"
                     >
                         <img
-                    src="./assets/images/home/logo.gif"
+                    src="./assets/images/home/logomain.png"
                     alt="dashboard"
                     class="tw-max-h-[600px] tw-max-w-[600px] tw-object-contain"
                 />
@@ -172,7 +407,7 @@
 <style>
   .toothless-marquee-container {
     width: 100%;
-    background: #e0e0e0;
+    background: #ff9800;
     border-top: 4px solid #111;
     border-bottom: 4px solid #111;
     overflow: hidden;
@@ -198,194 +433,264 @@
 </style>
 <div class="toothless-marquee-container">
   <div class="toothless-marquee-track">
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
-    <span style="display:flex;align-items:center;gap:10px;"><img src="./assets/logo/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />Toothless</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
+    <span style="display:flex;align-items:center;gap:0px;"><img src="./assets/images/home/logo.png" alt="logo" style="height:38px;width:auto;vertical-align:middle;" />labonkbu</span>
                     </div>
                 </div>
 <!-- Cartoonish Banner End -->
 
-<section class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-p-6">
-  <h3 style="font-size:3.5rem;font-weight:200;text-shadow:1px 0 0 #111, 0 1px 0 #111, -1px 0 0 #111, 0 -1px 0 #111;margin-bottom:0.1rem;text-align:center;">ABOUT</h3>
-  <h2 style="font-size:3.5rem;font-weight:200;text-shadow:1px 0 0 #111, 0 1px 0 #111, -1px 0 0 #111, 0 -1px 0 #111;margin-bottom:0.1rem;text-align:center;">Toothless</h2>
+<section class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-p-6" style="background: url('./assets/images/home/3.png'); background-size: 100% 70%; background-position: center bottom; background-repeat: no-repeat; margin: 0; padding: 40px 24px;">
+  <h3 style="font-size:3.5rem;font-weight:200;text-shadow:1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;margin-bottom:0.1rem;text-align:center;color:#fff;">ABOUT</h3>
+  <h2 style="font-size:3.5rem;font-weight:200;text-shadow:1px 0 0 #111, 0 1px 0 #111, -1px 0 0 #111, 0 -1px 0 #111;margin-bottom:0.1rem;text-align:center;">labonkbu</h2>
   <img src="./assets/images/home/standing.png" alt="Toothless standing" style="max-width:400px;width:100%;margin-top:8px;" />
-  <p style="max-width:900px;margin-top:32px;font-size:1.35rem;text-align:center;color:#111;font-family:'Gloria Hallelujah',cursive;line-height:1.5;font-weight:900;">
-    Dancing Toothless isn’t just a meme—it’s a chaotic, pixelated dragon born from the wildest corners of internet humor, a symbol of carefree joy and unapologetic groove. With its shiny black scales, big googly eyes, and a mischievous grin, this quirky icon from How to Train Your Dragon fan culture twirls through the digital realm with awkward yet endearing dance moves. It’s the embodiment of pure, unfiltered fun—grooving to an imaginary beat that resonates with anyone who’s ever danced like nobody’s watching.
+  <p id="typewriter-text" style="max-width:900px;margin-top:32px;font-size:1.35rem;text-align:center;color:#fff;font-family:'Gloria Hallelujah',cursive;line-height:1.5;font-weight:900;min-height:120px;">
+    <span id="typewriter-content"></span><span id="typewriter-cursor">|</span>
   </p>
-  <a href="https://x.com/i/communities/1948705274077892853" class="btn-interactive" style="display:inline-block;margin-top:32px;padding:18px 48px;background:#888888;border-radius:32px;font-size:2rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;color:#fff;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.08);letter-spacing:1px;transition:background 0.2s;" target="_blank" rel="noopener noreferrer">OUR COMMUNITY</a>
-  <hr style="display:block;margin:32px 0 100px 0;border:0;border-top:12px solid #000;width:100%;border-radius:0;" />
+  <a href="https://x.com/i/communities/1950182862994493550" class="community-button" target="_blank" rel="noopener noreferrer">
+    <span class="button_top">OUR COMMUNITY</span>
+  </a>
         </section>
 
-<!-- Move meme section above tokenomics section -->
-        <section
-            id="memes-section"
-            class="tw-mt-5 tw-flex tw-min-h-[80vh] tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-p-[2%] max-lg:tw-p-3"
-        >
-            <h3
-        class="reveal-up tw-text-center tw-text-6xl tw-font-bold max-md:tw-text-4xl"
-            >
-        Memes
-            </h3>
-            <!-- articles -->
-            <div
-        class="reveal-up tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-4 max-lg:tw-flex-col"
-            >
-                <a
-                    href=""
-                    class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
-                >
-                    <div
-                class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative"
-                    >
-                        <img
-                    src="./assets/images/home/drawing.png"
-                            alt="article image"
-                    class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
-                            srcset=""
-                        />
-                <img
-                    src="./assets/images/home/toothless-cat-cat.gif"
-                    alt="Toothless Cat Meme"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:2;"
-                        />
-                    </div>
-                </a>
-                <a
-                    href=""
-                    class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
-                >
-                    <div
-                class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative"
-                    >
-                        <img
-                    src="./assets/images/home/drawing.png"
-                            alt="article image"
-                    class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
-                            srcset=""
-                        />
-                <img
-                    src="./assets/images/home/toothless-dancing.gif"
-                    alt="Toothless Dancing Meme"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:2;"
-                        />
-                    </div>
-                </a>
-                <a
-                    href=""
-                    class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
-                >
-                    <div
-                class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative"
-                    >
-                        <img
-                    src="./assets/images/home/drawing.png"
-                            alt="article image"
-                    class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
-                            srcset=""
-                        />
-                <img
-                    src="./assets/images/home/toothless-dancing (1).gif"
-                    alt="Toothless Dancing 1 Meme"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:2;"
-                />
-            </div>
-        </a>
-        <a
-            href=""
-            class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
-        >
-            <div
-                class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative"
-            >
-                <img
-                    src="./assets/images/home/drawing.png"
-                    alt="article image"
-                    class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
-                    srcset=""
-                />
-                <img
-                    src="./assets/images/home/trickywi-dance.gif"
-                    alt="Trickywi Dance Meme"
-                    style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;transform:translate(-50%,-50%) scale(0.8);"
-                />
-                    </div>
-        </a>
-        <a href="" class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]">
-            <div class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative">
-                <img src="./assets/images/home/drawing.png" alt="canvas" class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]" />
-                <img
-                    src="./assets/images/home/porsha-vhiz-porsha-vhiz-toothless-dancing.gif"
-                    alt="Porsha Vhiz Toothless Dancing Meme"
-                    style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;transform:translate(-50%,-50%) scale(0.8);"
-                />
-                    </div>
-        </a>
-        <a href="" class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]">
-            <div class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative">
-                <img src="./assets/images/home/drawing.png" alt="canvas" class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]" />
-                <img
-                    src="./assets/images/home/gordita-seagull.gif"
-                    alt="Gordita Seagull Meme"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;"
-                />
-                </div>
-        </a>
-        <a href="" class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]">
-            <div class="tw-h-[180px] tw-w-full tw-overflow-hidden tw-rounded-md tw-relative">
-                <img src="./assets/images/home/drawing.png" alt="canvas" class="tw-h-full tw-w-full tw-object-contain tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]" />
-                <img
-                    src="./assets/images/home/toothlesswhite-dancing.gif"
-                    alt="Toothless White Dancing Meme"
-                    style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;transform:translate(-50%,-50%) scale(0.8);"
-                />
-                    </div>
-        </a>
-                    </div>
-</section>
-<hr style="display:block;margin:32px 0 24px 0;border:0;border-top:8px solid #000;width:100%;border-radius:0;" />
+<!-- Moving Meme Gallery Start -->
+<style>
+  .meme-gallery-container {
+    width: 100%;
+    background: linear-gradient(45deg, orange 25%, transparent 25%, transparent 75%, orange 75%, orange), linear-gradient(45deg, orange 25%, transparent 25%, transparent 75%, orange 75%, orange);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    border-top: 4px solid #111;
+    border-bottom: 4px solid #111;
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+    margin: 0;
+  }
+  .meme-gallery-track {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    white-space: nowrap;
+    animation: meme-gallery-scroll 25s linear infinite;
+    padding: 0 16px;
+  }
+  .meme-gallery-track.paused {
+    animation-play-state: paused;
+  }
+  @keyframes meme-gallery-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .meme-image {
+    flex-shrink: 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border: 3px solid #ff9800;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    object-fit: contain;
+  }
+  
+  /* Tall images (like Call of Labonkbu) */
+  .meme-image.tall {
+    width: 189px;
+    height: 279px;
+  }
+  
+  /* Square images */
+  .meme-image.square {
+    width: 280px;
+    height: 280px;
+  }
+  
+  /* Wide images */
+  .meme-image.wide {
+    width: 280px;
+    height: 200px;
+  }
+  
+  .meme-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    z-index: 10;
+    filter: brightness(1.1);
+  }
+  .meme-gallery-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 0 #ff9800;
+  }
+  
+  /* 3D Button Effect for Community Button */
+  .community-button {
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    display: inline-block;
+    margin-top: 32px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .community-button .button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+    background: linear-gradient(45deg, #FF5F6D, #FFC371);
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .community-button:hover .button_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+  }
+  
+  .community-button:active .button_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+  }
+</style>
+
+<div class="meme-gallery-container" id="meme-gallery-section">
+  <div class="meme-gallery-title">MEMES</div>
+  <div class="meme-gallery-track">
+    <img src="./assets/images/memes/calloflabonkbu.png" alt="Call of Labonkbu" class="meme-image tall" />
+    <img src="./assets/images/memes/sybau.png" alt="Sybau" class="meme-image square" />
+    <img src="./assets/images/memes/propaganda.jpg" alt="Propaganda" class="meme-image square" />
+    <img src="./assets/images/memes/goofy.png" alt="Goofy" class="meme-image square" />
+    <img src="./assets/images/memes/jeep.png" alt="Jeep" class="meme-image square" />
+    <!-- Multiple duplicates for endless loop -->
+    <img src="./assets/images/memes/calloflabonkbu.png" alt="Call of Labonkbu" class="meme-image tall" />
+    <img src="./assets/images/memes/sybau.png" alt="Sybau" class="meme-image square" />
+    <img src="./assets/images/memes/propaganda.jpg" alt="Propaganda" class="meme-image square" />
+    <img src="./assets/images/memes/goofy.png" alt="Goofy" class="meme-image square" />
+    <img src="./assets/images/memes/calloflabonkbu.png" alt="Call of Labonkbu" class="meme-image tall" />
+    <img src="./assets/images/memes/sybau.png" alt="Sybau" class="meme-image square" />
+    <img src="./assets/images/memes/propaganda.jpg" alt="Propaganda" class="meme-image square" />
+    <img src="./assets/images/memes/goofy.png" alt="Goofy" class="meme-image square" />
+    <img src="./assets/images/memes/calloflabonkbu.png" alt="Call of Labonkbu" class="meme-image tall" />
+    <img src="./assets/images/memes/sybau.png" alt="Sybau" class="meme-image square" />
+    <img src="./assets/images/memes/propaganda.jpg" alt="Propaganda" class="meme-image square" />
+    <img src="./assets/images/memes/goofy.png" alt="Goofy" class="meme-image square" />
+    <img src="./assets/images/memes/calloflabonkbu.png" alt="Call of Labonkbu" class="meme-image tall" />
+    <img src="./assets/images/memes/sybau.png" alt="Sybau" class="meme-image square" />
+    <img src="./assets/images/memes/propaganda.jpg" alt="Propaganda" class="meme-image square" />
+    <img src="./assets/images/memes/goofy.png" alt="Goofy" class="meme-image square" />
+    <img src="./assets/images/memes/jeep.png" alt="Jeep" class="meme-image square" />
+  </div>
+</div>
+<!-- Moving Meme Gallery End -->
+
 <!-- Tokenomics Details Section Start -->
-<div id="tokenomics-section" style="width:100%;display:flex;justify-content:center;margin-bottom:0;margin-top:0;scroll-margin-top:100px;">
-  <div class="shake-interactive" style="background:#e0e0e0;border-radius:14px;padding:18px 12px 16px 12px;max-width:700px;width:95vw;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-    <div style="font-size:1.6rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;text-align:center;margin-bottom:18px;">Tokenomics Details</div>
+<hr style="display:block;margin:0;border:0;border-top:12px solid #000;width:100vw;border-radius:0;margin-left:calc(-50vw + 50%);" />
+<section id="tokenomics-section" style="width:100%;display:flex;justify-content:center;margin:60px 0;scroll-margin-top:100px;padding:40px 0;">
+  <div class="tokenomics-container" style="background:#000;border-radius:14px;padding:18px 12px 16px 12px;max-width:700px;width:95vw;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <div style="font-size:1.6rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;text-align:center;margin-bottom:18px;color:#fff;">Tokenomics Details</div>
     <div style="display:flex;justify-content:space-around;align-items:flex-start;gap:16px;flex-wrap:wrap;">
       <div style="flex:1;min-width:120px;text-align:center;">
         <div style="font-size:2rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;color:#fff;">10%</div>
-        <div style="font-size:1.1rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#222;margin-top:4px;">SAVED FOR CEX</div>
+        <div style="font-size:1.1rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#fff;margin-top:4px;">SAVED FOR CEX</div>
                 </div>
       <div style="flex:1;min-width:120px;text-align:center;">
         <div style="font-size:2rem;font-family:'Gloria Hallelujah',cursive;font-weight:bold;color:#fff;">2%</div>
-        <div style="font-size:1.1rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#222;margin-top:4px;">TREASURY</div>
+        <div style="font-size:1.1rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#fff;margin-top:4px;">TREASURY</div>
                     </div>
                     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;">
-      <div style="font-size:1.3rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#111;text-align:left;">
+      <div style="font-size:1.3rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#fff;text-align:left;">
         Launched on:<br>Dev holding:
                 </div>
-      <div style="font-size:1.3rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#111;text-align:right;">
+      <div style="font-size:1.3rem;font-family:'Gloria Hallelujah',cursive;font-weight:400;color:#fff;text-align:right;">
         BONK<br>3%
                     </div>
                     </div>
                 </div>
-            </div>
+            </section>
 <!-- Tokenomics Details Section End -->
-<hr style="display:block;margin:32px 0 64px 0;border:0;border-top:12px solid #000;width:100vw;border-radius:0;margin-left:calc(-50vw + 50%);" />
 
-        <section class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-[10%] tw-p-[5%] tw-px-[10%] max-md:tw-px-2">
-            <div style="width: 800px; height: 800px; background: url('./assets/images/home/drawing2.png') center center/cover no-repeat; border-radius: 40px; position: relative; overflow: hidden;">
-                <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
-                <span style="font-size:2.07rem;font-family:'Gloria Hallelujah',cursive;text-align:center;">Join $Toothless Dance Party!</span>
-                <span style="font-size:1.15rem;font-family:'Gloria Hallelujah',cursive;color:#232936;">9cQLa4fAyuYLBMhgZ5VAgH5evCVa22Trgxv5DDCbonk</span>
-                <img src="./assets/images/home/phone.png" alt="Phone" style="height: 160px; width: auto;" />
-                </div>
+<hr style="display:block;margin:0;border:0;border-top:12px solid #000;width:100vw;border-radius:0;margin-left:calc(-50vw + 50%);" />
+
+        <section class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-[10%] tw-p-[5%] tw-px-[10%] max-md:tw-px-2" style="position: relative; overflow: hidden; background: radial-gradient(ellipse, orangered, transparent, orange) orange; min-height: 60vh;">
+                        <!-- Layered Hero Clouds in Bottom Section -->
+            <button class="btnCloud" style="position: absolute; top: 15%; left: 5%; z-index: 1; transform: scale(3);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon" style="animation-delay: 0s;"><path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path></svg>
+            </button>
+            <button class="btnCloud" style="position: absolute; top: 25%; left: 25%; z-index: 2; transform: scale(2.5);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon" style="animation-delay: 1s;"><path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path></svg>
+            </button>
+            <button class="btnCloud" style="position: absolute; top: 40%; left: 10%; z-index: 1; transform: scale(2);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon" style="animation-delay: 2s;"><path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path></svg>
+            </button>
+            <button class="btnCloud" style="position: absolute; top: 55%; right: 20%; z-index: 2; transform: scale(3.5);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon" style="animation-delay: 3s;"><path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path></svg>
+            </button>
+            <button class="btnCloud" style="position: absolute; top: 70%; right: 5%; z-index: 1; transform: scale(2.2);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon" style="animation-delay: 4s;"><path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path></svg>
+            </button>
+            <button class="btnCloud" style="position: absolute; top: 85%; left: 15%; z-index: 2; transform: scale(1.8);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon" style="animation-delay: 5s;"><path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path></svg>
+            </button>
+            
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;z-index:2;width:100%;max-width:800px;">
+                <!-- Main Title -->
+                <span style="font-size:3rem;font-family:'Gloria Hallelujah',cursive;text-align:center;color:#fff;font-weight:bold;">$labonkbu</span>
+                
+                <!-- Contract Address -->
+                <span style="font-size:1.2rem;font-family:'Gloria Hallelujah',cursive;color:#fff;text-align:center;background:rgba(0,0,0,0.3);padding:10px 20px;border-radius:10px;">doAMGn1afX2dpXnLj3R5HWL6vAPDRKCdsFN6jWKbonk</span>
+                
+                <!-- Logo -->
+                <img src="./assets/images/home/logomain.png" alt="Labonkbu Logo" style="height: 180px; width: auto;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.3));" />
+                
             </div>
         </section>
+
+<!-- Social Icons above Copyright -->
+<div style="display:flex;gap:20px;justify-content:center;margin-bottom:10px;">
+    <a href="https://x.com/Labonkbudev" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;width:45px !important;height:45px !important;background:#fff !important;border:2px solid #111 !important;border-radius:50% !important;text-decoration:none;transition:transform 0.3s ease;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="width:20px !important;height:20px !important;">
+            <path d="M17.53 2H21.5L14.36 10.32L22.75 21.5H16.08L10.97 14.93L5.19 21.5H1.21L8.78 12.67L0.75 2H7.58L12.18 7.97L17.53 2ZM16.36 19.57H18.19L6.47 3.82H4.53L16.36 19.57Z" fill="#111"/>
+        </svg>
+    </a>
+                        <a href="https://letsbonk.fun/token/doAMGn1afX2dpXnLj3R5HWL6vAPDRKCdsFN6jWKbonk" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;width:45px !important;height:45px !important;background:#fff !important;border:2px solid #111 !important;border-radius:50% !important;text-decoration:none;transition:transform 0.3s ease;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="width:20px !important;height:20px !important;">
+            <rect x="4" y="14" width="3" height="6" rx="1.5" fill="#ff9800"/>
+            <rect x="10.5" y="10" width="3" height="10" rx="1.5" fill="#ff9800"/>
+            <rect x="17" y="6" width="3" height="14" rx="1.5" fill="#ff9800"/>
+        </svg>
+    </a>
+</div>
 
 <!-- Floating Live Card Start -->
 <style>
@@ -585,7 +890,7 @@
   <div class="ca-box">
     <div class="ca-label">Contract Address</div>
     <div class="ca-address-row" id="caAddress" title="Click to copy full address">
-      <span id="caAddressText">9cQLa4fAyuYLBMhgZ5VAgH5evCVa22Trgxv5DDCbonk</span>
+      <span id="caAddressText">doAMGn1afX2dpXnLj3R5HWL6vAPDRKCdsFN6jWKbonk</span>
       <span class="ca-copy ca-copy-floating" title="Copy" tabindex="0" aria-label="Copy contract address">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="8" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -601,14 +906,14 @@
   <div class="live-modal">
     <button class="live-modal-close" id="liveModalClose">&times;</button>
     <h2 style="color:#ff9800;font-size:2.2rem;margin-bottom:1rem;">Welcome to the Party!</h2>
-    <p style="font-size:1.3rem;line-height:1.5;margin-bottom:1.5rem;">This is your exclusive backstage pass to the Toothless Dance Party!<br>Get ready for meme magic, live fun, and a whole lot of dragon energy.<br><br><em>More amazing features coming soon...</em></p>
+    <p style="font-size:1.3rem;line-height:1.5;margin-bottom:1.5rem;">This is your exclusive backstage pass to the labonkbu Dance Party!<br>Get ready for meme magic, live fun, and a whole lot of dragon energy.<br><br><em>More amazing features coming soon...</em></p>
     <button style="background:#ff9800;color:#222;font-weight:bold;padding:12px 32px;border-radius:12px;font-size:1.2rem;box-shadow:0 2px 8px rgba(0,0,0,0.12);border:none;cursor:pointer;">Let's Go!</button>
                 </div>
             </div>
 <!-- Floating Live Card End -->
     </body>
-<div style="width:100vw;text-align:center;padding:18px 0 24px 0;background:transparent;font-family:'Gloria Hallelujah',cursive;font-size:2rem;color:#111;letter-spacing:1px;">
-  © 2025 Toothless.<br>All rights reserved.
+<div style="width:100vw;text-align:center;padding:18px 0 24px 0;background:transparent;font-family:'Gloria Hallelujah',cursive;font-size:1.2rem !important;color:red !important;letter-spacing:1px;">
+  © 2025 <span style="color: #000;">labonkbu</span>.<br>All rights reserved.
 </div>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
@@ -650,6 +955,46 @@ document.addEventListener('DOMContentLoaded', function() {
           }, 1200);
         });
       }
+    });
+  }
+
+  // Typewriter Effect
+  const typewriterText = "Labonkbu isn't just a meme—it's a chaotic, pixelated bunny born from the wildest corners of internet humor, a symbol of carefree joy and unapologetic groove. With its fuzzy green suit, big googly eyes, and mischievous grin, this quirky icon from its fan culture twirls through the digital realm with awkward yet endearing dance moves. It's the embodiment of pure, unfiltered fun-grooving to an imaginary beat that resonates with anyone who's ever danced like nobody's watching, even while bonking a Shiba Inu!";
+  const typewriterContent = document.getElementById('typewriter-content');
+  const typewriterCursor = document.getElementById('typewriter-cursor');
+  
+  if (typewriterContent && typewriterCursor) {
+    let charIndex = 0;
+    const typeSpeed = 30; // milliseconds per character (fast)
+    
+    function typeWriter() {
+      if (charIndex < typewriterText.length) {
+        typewriterContent.textContent += typewriterText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, typeSpeed);
+      } else {
+        // Remove cursor when typing is complete
+        typewriterCursor.style.display = 'none';
+      }
+    }
+    
+    // Start typing when page loads
+    setTimeout(typeWriter, 1000); // Start after 1 second
+  }
+  
+  // Meme Gallery Hover Logic
+  const memeGalleryTrack = document.querySelector('.meme-gallery-track');
+  const memeGalleryItems = document.querySelectorAll('.meme-gallery-item');
+  
+  if (memeGalleryTrack && memeGalleryItems.length > 0) {
+    memeGalleryItems.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        memeGalleryTrack.classList.add('paused');
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        memeGalleryTrack.classList.remove('paused');
+      });
     });
   }
 });
